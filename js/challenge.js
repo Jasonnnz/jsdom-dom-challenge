@@ -35,6 +35,7 @@ function pausedCounter(){
 }
 
 mainPage.addEventListener('click', function(e) {
+    e.preventDefault();
     const btnClicked = e.target;
     const time = parseInt(timer.textContent); 
     const ul = document.querySelector('ul.likes');
@@ -49,6 +50,13 @@ mainPage.addEventListener('click', function(e) {
         ul.append(li);
     } else if (btnClicked === pauseBtn) {
         pausedCounter();
-    } 
+    } else if (btnClicked.matches('#submit')) {
+        const comment = document.querySelector('input[type="text"]');
+        const h3 = document.querySelector('div#list');
+        const li = document.createElement('li');
+        li.textContent = comment.value;
+        h3.append(li);
+        comment.value = "";
+    }
 
 })
