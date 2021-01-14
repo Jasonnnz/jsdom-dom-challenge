@@ -51,12 +51,14 @@ mainPage.addEventListener('click', function(e) {
     } else if (btnClicked === pauseBtn) {
         pausedCounter();
     } else if (btnClicked.matches('#submit')) {
+        const form = document.querySelector('form#comment-form');
         const comment = document.querySelector('input[type="text"]');
         const h3 = document.querySelector('div#list');
         const li = document.createElement('li');
         li.textContent = comment.value;
         h3.append(li);
-        comment.value = "";
+        form.reset();
+        // comment.value = "";
     }
 
 })
